@@ -6,7 +6,7 @@
   "scripts": {
     "g:build:typescript": "cd $INIT_CWD && tsc -b src/tsconfig.json",
     "g:clean:dist": "cd $INIT_CWD && rm -rf dist",
-    "build": "yarn clean && yarn workspaces foreach --verbose run build",
+    "build": "yarn workspaces foreach --verbose run build",
     "clean": "yarn workspaces foreach --verbose run clean"
   },
   "workspaces": [

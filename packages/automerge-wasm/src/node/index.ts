@@ -1,8 +1,8 @@
 // @ts-ignore
-import { setDefaultBackend } from "automerge";
+import { setDefaultBackend } from "@livingspec/automerge";
 
 import * as wasmBackend from "@livingspec/automerge-backend-wasm";
 
 setDefaultBackend(wasmBackend);
 
-export * from "automerge";
+export * from "@livingspec/automerge";

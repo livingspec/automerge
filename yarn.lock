@@ -82,6 +82,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@livingspec/automerge-backend-wasm@workspace:packages/automerge-backend-wasm"
   dependencies:
+    "@livingspec/automerge": "workspace:packages/automerge"
     automerge: "livingspec/automerge.git#4c3320ae275e8486d68df5c9d63f417ec7038733"
     automerge-backend-wasm: ^0.1.4
     copyfiles: ^2.4.1
@@ -101,9 +102,17 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@livingspec/automerge-wasm@workspace:packages/automerge-wasm"
   dependencies:
+    "@livingspec/automerge": "workspace:packages/automerge"
     "@livingspec/automerge-backend-wasm": "workspace:packages/automerge-backend-wasm"
-    automerge: "livingspec/automerge.git#4c3320ae275e8486d68df5c9d63f417ec7038733"
     typescript: ^4.2.2
+  languageName: unknown
+  linkType: soft
+
+"@livingspec/automerge@workspace:packages/automerge":
+  version: 0.0.0-use.local
+  resolution: "@livingspec/automerge@workspace:packages/automerge"
+  dependencies:
+    automerge: "automerge/automerge.git#performance"
   languageName: unknown
   linkType: soft
 
@@ -352,6 +361,17 @@ __metadata:
   version: 0.1.4
   resolution: "automerge-backend-wasm@npm:0.1.4"
   checksum: db898e0c58b0e2e282bd1d753469e7ae8b098dabd0ae073d9e9e28d965471e7470619bba66b047502a84b81a2043186570c71c10115be5cba44a9b3a91b978c1
+  languageName: node
+  linkType: hard
+
+"automerge@automerge/automerge.git#performance":
+  version: 0.14.0
+  resolution: "automerge@https://github.com/automerge/automerge.git#commit=cb4403c14fe678f638969916e30f22d0c83dffac"
+  dependencies:
+    fast-sha256: ^1.3.0
+    immutable: ^3.8.2
+    uuid: ^3.4.0
+  checksum: efd61f03132a364b95c6e630bac00c6a468870b11b568e93335de2e29b315b2c0825f508d518315ad04d96d8d1ef152d0bfdb779b0ae8630bcc79418932c2571
   languageName: node
   linkType: hard
 
