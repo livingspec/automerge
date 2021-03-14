@@ -2,7 +2,7 @@
   "name": "@livingspec/automerge",
   "main": "./dist/mjs/index.js",
   "types": "./types/index.d.ts",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "exports": {
     "import": "./dist/mjs/index.js",
     "default": "./dist/cjs/index.js"
@@ -14,7 +14,7 @@
     "publish": "yarn npm publish"
   },
   "dependencies": {
-    "automerge": "automerge/automerge.git#performance"
+    "automerge": "automerge/automerge.git#7087c2c5f894ea764ed80648254f1da3c2c51c9b"
   },
   "files": [
     "dist",
