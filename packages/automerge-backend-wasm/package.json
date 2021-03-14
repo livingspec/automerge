@@ -1,6 +1,6 @@
 {
   "name": "@livingspec/automerge-backend-wasm",
-  "version": "0.1.12",
+  "version": "0.1.13",
   "author": "Nemanja Tosic <nemanja@livingspec.com>",
   "license": "MIT",
   "main": "./dist/webpack/index.js",
