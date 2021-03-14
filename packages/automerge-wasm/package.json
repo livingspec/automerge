@@ -10,9 +10,7 @@
   },
   "scripts": {
     "prepack": "yarn build",
-    "build": "yarn g:build:typescript",
-    "clean": "yarn g:clean:dist",
-    "publish": "yarn npm publish"
+    "build": "yarn g:build:typescript"
   },
   "dependencies": {
     "@livingspec/automerge": "workspace:packages/automerge",

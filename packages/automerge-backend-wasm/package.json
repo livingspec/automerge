@@ -11,9 +11,7 @@
   "scripts": {
     "prepack": "yarn build",
     "copy": "copyfiles --flat ../../node_modules/automerge-backend-wasm/mjs/index_bg.* ./dist/webpack",
-    "build": "yarn g:build:typescript && yarn copy",
-    "clean": "yarn g:clean:dist",
-    "publish": "yarn npm publish"
+    "build": "yarn g:build:typescript && yarn copy"
   },
   "dependencies": {
     "automerge-backend-wasm": "^0.1.4"
