@@ -8,7 +8,8 @@
     "g:clean:dist": "cd $INIT_CWD && rm -rf dist",
     "build": "yarn workspaces foreach --verbose run build",
     "clean": "yarn workspaces foreach --verbose exec rm -rf dist",
-    "publish": "yarn workspaces foreach --verbose --no-private npm publish"
+    "publish": "yarn workspaces foreach --verbose --no-private npm publish",
+    "version:patch": "yarn workspaces foreach --verbose --no-private version patch"
   },
   "workspaces": [
     "packages/*"

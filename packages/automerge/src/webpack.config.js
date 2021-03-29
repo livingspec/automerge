@@ -20,13 +20,10 @@ const webpackModule = {
 module.exports = [
   {
     entry: "./mjs/index.js",
-    experiments: {
-      outputModule: true,
-    },
     output: {
       filename: "index.js",
       library: {
-        type: "module",
+        type: "umd",
       },
       path: path.resolve(__dirname, "..", "dist", "mjs"),
     },
