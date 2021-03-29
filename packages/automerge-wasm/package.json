@@ -13,8 +13,8 @@
     "build": "yarn g:build:typescript"
   },
   "dependencies": {
-    "@livingspec/automerge": "workspace:packages/automerge",
-    "@livingspec/automerge-backend-wasm": "workspace:packages/automerge-backend-wasm"
+    "@livingspec/automerge": "workspace:^0.0.5",
+    "@livingspec/automerge-backend-wasm": "workspace:^0.1.16"
   },
   "devDependencies": {
     "typescript": "^4.2.2"
