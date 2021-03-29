@@ -1,0 +1,3 @@
+undecided:
+  - "@livingspec/automerge-root"
+  - "@livingspec/automerge-backend-wasm"
