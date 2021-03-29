@@ -2,7 +2,7 @@
   "name": "@livingspec/automerge",
   "main": "./dist/mjs/index.js",
   "types": "./types/index.d.ts",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "exports": {
     "import": "./dist/import/index.js",
     "default": "./dist/default/index.js"

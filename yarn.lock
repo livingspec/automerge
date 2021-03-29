@@ -1297,11 +1297,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@livingspec/automerge-backend-wasm@workspace:^0.1.19, @livingspec/automerge-backend-wasm@workspace:packages/automerge-backend-wasm":
+"@livingspec/automerge-backend-wasm@workspace:^0.1.20, @livingspec/automerge-backend-wasm@workspace:packages/automerge-backend-wasm":
   version: 0.0.0-use.local
   resolution: "@livingspec/automerge-backend-wasm@workspace:packages/automerge-backend-wasm"
   dependencies:
-    "@livingspec/automerge": "workspace:^0.0.7"
+    "@livingspec/automerge": "workspace:^0.0.8"
     automerge: "livingspec/automerge.git#4c3320ae275e8486d68df5c9d63f417ec7038733"
     automerge-backend-wasm: ^0.1.4
     copyfiles: ^2.4.1
@@ -1327,13 +1327,13 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@livingspec/automerge-wasm@workspace:packages/automerge-wasm"
   dependencies:
-    "@livingspec/automerge": "workspace:^0.0.7"
-    "@livingspec/automerge-backend-wasm": "workspace:^0.1.19"
+    "@livingspec/automerge": "workspace:^0.0.8"
+    "@livingspec/automerge-backend-wasm": "workspace:^0.1.20"
     typescript: ^4.2.2
   languageName: unknown
   linkType: soft
 
-"@livingspec/automerge@workspace:^0.0.7, @livingspec/automerge@workspace:packages/automerge":
+"@livingspec/automerge@workspace:^0.0.8, @livingspec/automerge@workspace:packages/automerge":
   version: 0.0.0-use.local
   resolution: "@livingspec/automerge@workspace:packages/automerge"
   dependencies:
