@@ -1,11 +1,20 @@
-import { init } from '@livingspec/automerge-wasm';
+import { from, Text } from "@livingspec/automerge-wasm";
 
-const doc = init();
-
-console.log(doc);
-
-onmessage = ev => {
-    console.log(ev);
+const initialState = {
+  birds: {
+    wrens: 3,
+    magpies: 4,
+    nested: {
+      text: new Text(new Array(100).fill("a")),
+    },
+  },
 };
 
-postMessage('ping');
+console.log(from(initialState));
+
+onmessage = (ev) => {
+  // tests a communication issue in next and webworkers
+  console.log(ev);
+};
+
+postMessage("ping");

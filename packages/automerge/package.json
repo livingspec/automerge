@@ -4,15 +4,15 @@
   "types": "./types/index.d.ts",
   "version": "0.0.5",
   "exports": {
-    "import": "./dist/mjs/index.js",
-    "default": "./dist/cjs/index.js"
+    "import": "./dist/import/index.js",
+    "default": "./dist/default/index.js"
   },
   "scripts": {
     "prepack": "yarn build",
     "build": "cd src; webpack"
   },
   "dependencies": {
-    "automerge": "automerge/automerge.git#7087c2c5f894ea764ed80648254f1da3c2c51c9b"
+    "automerge": "automerge/automerge.git#cb4403c14fe678f638969916e30f22d0c83dffac"
   },
   "files": [
     "dist",

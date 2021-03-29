@@ -5,7 +5,7 @@ const mode = "development";
 const webpackModule = {
   rules: [
     {
-      test: /\.ts$/,
+      test: /\.js$/,
       exclude: /node_modules/,
       use: {
         loader: "babel-loader",
@@ -19,26 +19,29 @@ const webpackModule = {
 
 module.exports = [
   {
-    entry: "./mjs/index.js",
+    entry: "./index.js",
     output: {
       filename: "index.js",
       library: {
+        // TODO: modules
         type: "umd",
       },
-      path: path.resolve(__dirname, "..", "dist", "mjs"),
+      path: path.resolve(__dirname, "..", "dist", "import"),
+      globalObject: "this",
     },
     mode,
     devtool,
     module: webpackModule,
   },
   {
-    entry: "./cjs/index.js",
+    entry: "./index.js",
     output: {
       filename: "index.js",
       library: {
-        type: "commonjs",
+        type: "umd",
       },
-      path: path.resolve(__dirname, "..", "dist", "cjs"),
+      path: path.resolve(__dirname, "..", "dist", "default"),
+      globalObject: "this",
     },
     mode,
     devtool,
