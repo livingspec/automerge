@@ -23,12 +23,20 @@ declare module '@livingspec/automerge' {
 
   type InitOptions<T> =
     | string // = actorId
-    | { 
+    | {
       actorId?: string
       deferActorId?: boolean
       freeze?: boolean
       patchCallback?: PatchCallback<T>
       observable?: Observable
+    }
+
+  type ChangeOptions<T> =
+    | string // = message
+    | {
+      message?: string
+      time?: number
+      patchCallback?: PatchCallback<T>
     }
 
   type PatchCallback<T> = (patch: Patch, before: T, after: T, local: boolean, changes: Uint8Array[]) => void
@@ -40,9 +48,9 @@ declare module '@livingspec/automerge' {
 
   function merge<T>(localdoc: Doc<T>, remotedoc: Doc<T>): Doc<T>
 
-  function change<D, T = Proxy<D>>(doc: D, message: string, callback: ChangeFn<T>): D
+  function change<D, T = Proxy<D>>(doc: D, options: ChangeOptions<T>, callback: ChangeFn<T>): D
   function change<D, T = Proxy<D>>(doc: D, callback: ChangeFn<T>): D
-  function emptyChange<D extends Doc<any>>(doc: D, message?: string): D
+  function emptyChange<D extends Doc<any>>(doc: D, options?: ChangeOptions<D>): D
   function applyChanges<T>(doc: Doc<T>, changes: Uint8Array[]): Doc<T>
   function equals<T>(val1: T, val2: T): boolean
   function encodeChange(change: Change): Uint8Array
@@ -132,6 +140,7 @@ declare module '@livingspec/automerge' {
     function applyLocalChange(state: BackendState, change: Change): [BackendState, Patch, Uint8Array]
     function clone(state: BackendState): BackendState
     function free(state: BackendState): void
+    function getAllChanges(state: BackendState): Uint8Array[]
     function getChanges(state: BackendState, haveDeps: Hash[]): Uint8Array[]
     function getHeads(state: BackendState): Hash[]
     function getMissingDeps(state: BackendState): Hash[]

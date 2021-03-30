@@ -1,12 +1,12 @@
-import { from, getAllChanges } from "@livingspec/automerge-wasm";
+import Automerge from "@livingspec/automerge-wasm";
 import { expect } from "chai";
 
 describe('Fixes', () => {
   context("getAllChanges is not a function", () => {
     it("should be created", () => {
-      const doc = from({ test: "1234" });
+      const doc = Automerge.from({ test: "1234" });
 
-      expect(() => getAllChanges(doc)).not.to.throw();
+      expect(() => Automerge.getAllChanges(doc)).not.to.throw();
     });
   });
 });

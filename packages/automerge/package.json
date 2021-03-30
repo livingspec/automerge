@@ -1,18 +1,18 @@
 {
   "name": "@livingspec/automerge",
-  "main": "./dist/mjs/index.js",
   "types": "./types/index.d.ts",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "exports": {
-    "import": "./dist/import/index.js",
-    "default": "./dist/default/index.js"
+    "webpack": "./dist/webpack/index.js",
+    "node": "./dist/node/index.js"
   },
   "scripts": {
     "prepack": "yarn build",
-    "build": "cd src; webpack"
+    "build": "yarn g:build:typescript",
+    "clean": "yarn g:clean:dist"
   },
   "dependencies": {
-    "automerge": "automerge/automerge.git#7087c2c5f894ea764ed80648254f1da3c2c51c9b"
+    "automerge": "automerge/automerge.git#cb4403c14fe678f638969916e30f22d0c83dffac"
   },
   "files": [
     "dist",

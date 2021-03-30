@@ -1,4 +1,4 @@
-import { from, Text } from "@livingspec/automerge-wasm";
+import Automerge from "@livingspec/automerge-wasm";
 import { expect } from "chai";
 
 describe("text issues", () => {
@@ -6,11 +6,11 @@ describe("text issues", () => {
     it("should show wrens", () => {
       expect(
         toJs(
-          from({
+          Automerge.from({
             birds: {
               magpies: 4,
               nested: {
-                text: new Text(new Array(63).fill("a")),
+                text: new Automerge.Text(new Array(63).fill("a")),
               },
               wrens: 3,
             },
@@ -24,11 +24,11 @@ describe("text issues", () => {
     it("should show wrens", () => {
       expect(
         toJs(
-          from({
+          Automerge.from({
             birds: {
               magpies: 4,
               nested: {
-                text: new Text(new Array(64).fill("a")),
+                text: new Automerge.Text(new Array(64).fill("a")),
               },
               wrens: 3,
             },

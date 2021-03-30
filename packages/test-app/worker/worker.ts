@@ -1,4 +1,4 @@
-import { from, Text } from "@livingspec/automerge-wasm";
+import { from, Text, change, getAllChanges } from "@livingspec/automerge-wasm";
 
 const initialState = {
   birds: {
@@ -10,11 +10,15 @@ const initialState = {
   },
 };
 
-console.log(from(initialState));
+// tests a communication issue in next and webworkers
+onmessage = () => {
+  let doc = change(from(initialState), (d) => {
+    d.birds.wrens = 5;
+  });
 
-onmessage = (ev) => {
-  // tests a communication issue in next and webworkers
-  console.log(ev);
+  console.log("doc", JSON.parse(JSON.stringify(doc)));
+
+  console.log("all changes", getAllChanges(doc));
 };
 
 postMessage("ping");

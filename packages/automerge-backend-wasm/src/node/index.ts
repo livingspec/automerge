@@ -1,6 +1,6 @@
-// @ts-ignore
-export * from 'automerge-backend-wasm';
+export * from "automerge-backend-wasm";
 
-import * as Backend from 'automerge-backend-wasm';
+import { getChanges } from "automerge-backend-wasm";
 
-export const getAllChanges = state => Backend.getChanges(state, []);
+// TODO: remove when backend supports
+export const getAllChanges = (state) => getChanges(state, []);
