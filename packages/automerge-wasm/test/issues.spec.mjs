@@ -20,7 +20,7 @@ describe("text issues", () => {
 
   context("text field with more that 63", () => {
     [1, 28, 63, 64, 100, 127, 128, 191, 192, 256, 383, 384, 511, 512].forEach(length => {
-      it.only("should show wrens", () => {
+      it("should show wrens", () => {
         expect(
           toJs(
             Automerge.from({
