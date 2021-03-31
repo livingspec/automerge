@@ -1,6 +1,6 @@
-import "./index_bg.wasm";
+import "../build/mjs/index_bg.wasm";
 
-import * as backend from "./index_bg";
+import * as backend from "../build/mjs/index_bg";
 
 export const init = backend.init;
 export const applyChanges = backend.applyChanges;

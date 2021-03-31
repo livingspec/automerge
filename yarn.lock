@@ -1297,13 +1297,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@livingspec/automerge-backend-wasm@workspace:^0.1.21, @livingspec/automerge-backend-wasm@workspace:packages/automerge-backend-wasm":
+"@livingspec/automerge-backend-wasm@workspace:^0.1.22, @livingspec/automerge-backend-wasm@workspace:packages/automerge-backend-wasm":
   version: 0.0.0-use.local
   resolution: "@livingspec/automerge-backend-wasm@workspace:packages/automerge-backend-wasm"
   dependencies:
-    "@livingspec/automerge": "workspace:^0.0.9"
+    "@livingspec/automerge": "workspace:^0.0.10"
     automerge: "automerge/automerge.git#cb4403c14fe678f638969916e30f22d0c83dffac"
-    automerge-backend-wasm: ^0.1.4
     copyfiles: ^2.4.1
     typescript: ^4.2.3
   languageName: unknown
@@ -1327,13 +1326,13 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@livingspec/automerge-wasm@workspace:packages/automerge-wasm"
   dependencies:
-    "@livingspec/automerge": "workspace:^0.0.9"
-    "@livingspec/automerge-backend-wasm": "workspace:^0.1.21"
+    "@livingspec/automerge": "workspace:^0.0.10"
+    "@livingspec/automerge-backend-wasm": "workspace:^0.1.22"
     typescript: ^4.2.2
   languageName: unknown
   linkType: soft
 
-"@livingspec/automerge@workspace:^0.0.9, @livingspec/automerge@workspace:packages/automerge":
+"@livingspec/automerge@workspace:^0.0.10, @livingspec/automerge@workspace:packages/automerge":
   version: 0.0.0-use.local
   resolution: "@livingspec/automerge@workspace:packages/automerge"
   dependencies:
@@ -2014,13 +2013,6 @@ __metadata:
   version: 0.4.0
   resolution: "asynckit@npm:0.4.0"
   checksum: a024000b9ddd938e2f27b3cb8188f96a5e1fff58185e98b84862fc4e01de279a547874a800340c2b106bb9de9b0fc61c6c683bc6892abf65e6be29a96addafd3
-  languageName: node
-  linkType: hard
-
-"automerge-backend-wasm@npm:^0.1.4":
-  version: 0.1.4
-  resolution: "automerge-backend-wasm@npm:0.1.4"
-  checksum: db898e0c58b0e2e282bd1d753469e7ae8b098dabd0ae073d9e9e28d965471e7470619bba66b047502a84b81a2043186570c71c10115be5cba44a9b3a91b978c1
   languageName: node
   linkType: hard
 

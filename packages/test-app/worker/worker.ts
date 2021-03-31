@@ -1,4 +1,10 @@
-import { from, Text, change, getAllChanges } from "@livingspec/automerge-wasm";
+import {
+  init,
+  change,
+  from,
+  Text,
+  getAllChanges,
+} from "@livingspec/automerge-wasm";
 
 const initialState = {
   birds: {
@@ -12,8 +18,9 @@ const initialState = {
 
 // tests a communication issue in next and webworkers
 onmessage = () => {
-  let doc = change(from(initialState), (d) => {
-    d.birds.wrens = 5;
+  let doc = change(init(), (d: any) => {
+    d.birds = { wrens: 3, text: new Text(new Array(100).fill("a")) };
+    return d;
   });
 
   console.log("doc", JSON.parse(JSON.stringify(doc)));
