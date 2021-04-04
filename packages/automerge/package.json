@@ -1,7 +1,7 @@
 {
   "name": "@livingspec/automerge",
   "types": "./types/index.d.ts",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "exports": {
     "webpack": "./dist/webpack/index.js",
     "node": "./dist/node/index.js"
@@ -13,7 +13,7 @@
     "clean": "yarn g:clean:dist"
   },
   "dependencies": {
-    "automerge": "automerge/automerge.git#cb4403c14fe678f638969916e30f22d0c83dffac"
+    "automerge": "automerge/automerge.git#81079ff75d2234b47cb912bad728158f2e71c527"
   },
   "files": [
     "dist",
