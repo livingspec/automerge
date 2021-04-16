@@ -1,31 +1,23 @@
 import {
-  init,
-  change,
   from,
-  Text,
+  init,
+  applyChanges,
   getAllChanges,
+  change,
 } from "@livingspec/automerge-wasm";
 
-const initialState = {
-  birds: {
-    wrens: 3,
-    magpies: 4,
-    nested: {
-      text: new Text(new Array(100).fill("a")),
-    },
-  },
-};
+import { applySlateOps, RootWithCursors } from "../automerge-slate";
 
-// tests a communication issue in next and webworkers
-onmessage = () => {
-  let doc = change(init(), (d: any) => {
-    d.birds = { wrens: 3, text: new Text(new Array(100).fill("a")) };
-    return d;
-  });
+let doc: RootWithCursors;
 
-  console.log("doc", JSON.parse(JSON.stringify(doc)));
-
-  console.log("all changes", getAllChanges(doc));
+onmessage = (message) => {
+  if (message.data.type === "init") {
+    doc = from({ cursors: {}, children: [message.data.state] });
+  } else if (message.data.type === "operation") {
+    doc = change(doc, applySlateOps(message.data.operations));
+    // simulate re-hydrating, which we have to do at a certain point due to high memory usage
+    applyChanges(init(), getAllChanges(doc));
+  }
 };
 
 postMessage("ping");
