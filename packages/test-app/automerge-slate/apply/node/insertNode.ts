@@ -11,7 +11,7 @@ const insertNode = (doc: SyncValue, op: InsertNodeOperation): SyncValue => {
     throw new TypeError("Can't insert node into text node");
   }
 
-  getChildren(parent.current).splice(index, 0, toSync(op.node));
+  getChildren(parent.current as any).splice(index, 0, toSync(op.node));
 
   return doc;
 };

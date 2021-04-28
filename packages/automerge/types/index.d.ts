@@ -1,5 +1,5 @@
 // TODO: replace with the export of automerge
-declare module '@livingspec/automerge' {
+declare module "@livingspec/automerge" {
   /**
    * The return type of `Automerge.init<T>()`, `Automerge.change<T>()`, etc. where `T` is the
    * original type. It is a recursively frozen version of the original type.
@@ -18,7 +18,7 @@ declare module '@livingspec/automerge' {
 
   function init<T>(options?: InitOptions<T>): Doc<T>
   function from<T>(initialState: T | Doc<T>, options?: InitOptions<T>): Doc<T>
-  function clone<T>(doc: Doc<T>): Doc<T>
+  function clone<T>(doc: Doc<T>, options?: InitOptions<T>): Doc<T>
   function free<T>(doc: Doc<T>): void
 
   type InitOptions<T> =
@@ -39,8 +39,8 @@ declare module '@livingspec/automerge' {
       patchCallback?: PatchCallback<T>
     }
 
-  type PatchCallback<T> = (patch: Patch, before: T, after: T, local: boolean, changes: Uint8Array[]) => void
-  type ObserverCallback<T> = (diff: ObjectDiff, before: T, after: T, local: boolean, changes: Uint8Array[]) => void
+  type PatchCallback<T> = (patch: Patch, before: T, after: T, local: boolean, changes: BinaryChange[]) => void
+  type ObserverCallback<T> = (diff: ObjectDiff, before: T, after: T, local: boolean, changes: BinaryChange[]) => void
 
   class Observable {
     observe<T>(object: T, callback: ObserverCallback<T>): void
@@ -51,22 +51,25 @@ declare module '@livingspec/automerge' {
   function change<D, T = Proxy<D>>(doc: D, options: ChangeOptions<T>, callback: ChangeFn<T>): D
   function change<D, T = Proxy<D>>(doc: D, callback: ChangeFn<T>): D
   function emptyChange<D extends Doc<any>>(doc: D, options?: ChangeOptions<D>): D
-  function applyChanges<T>(doc: Doc<T>, changes: Uint8Array[]): Doc<T>
+  function applyChanges<T>(doc: Doc<T>, changes: BinaryChange[]): [Doc<T>, Patch]
   function equals<T>(val1: T, val2: T): boolean
-  function encodeChange(change: Change): Uint8Array
-  function decodeChange(binaryChange: Uint8Array): Change
+  function encodeChange(change: Change): BinaryChange
+  function decodeChange(binaryChange: BinaryChange): Change
 
   function getActorId<T>(doc: Doc<T>): string
-  function getAllChanges<T>(doc: Doc<T>): Uint8Array[]
-  function getChanges<T>(olddoc: Doc<T>, newdoc: Doc<T>): Uint8Array[]
+  function getAllChanges<T>(doc: Doc<T>): BinaryChange[]
+  function getChanges<T>(olddoc: Doc<T>, newdoc: Doc<T>): BinaryChange[]
   function getConflicts<T>(doc: Doc<T>, key: keyof T): any
   function getHistory<D, T = Proxy<D>>(doc: Doc<T>): State<T>[]
-  function getMissingDeps<T>(doc: Doc<T>): Hash[]
   function getObjectById<T>(doc: Doc<T>, objectId: OpId): any
   function getObjectId(object: any): OpId
 
-  function load<T>(data: Uint8Array, options?: any): Doc<T>
-  function save<T>(doc: Doc<T>): Uint8Array
+  function load<T>(data: BinaryDocument, options?: any): Doc<T>
+  function save<T>(doc: Doc<T>): BinaryDocument
+
+  function generateSyncMessage<T>(doc: Doc<T>, syncState: SyncState): [SyncState, BinarySyncMessage?]
+  function receiveSyncMessage<T>(doc: Doc<T>, syncState: SyncState, message: BinarySyncMessage): [Doc<T>, SyncState, Patch?]
+  function initSyncState(): SyncState
 
   // custom CRDT types
 
@@ -119,7 +122,7 @@ declare module '@livingspec/automerge' {
   // Front & back
 
   namespace Frontend {
-    function applyPatch<T>(doc: Doc<T>, patch: Patch): Doc<T>
+    function applyPatch<T>(doc: Doc<T>, patch: Patch, backendState?: BackendState): Doc<T>
     function change<D, T = Proxy<D>>(doc: D, message: string | undefined, callback: ChangeFn<T>): [D, Change]
     function change<D, T = Proxy<D>>(doc: D, callback: ChangeFn<T>): [D, Change]
     function emptyChange<T>(doc: Doc<T>, message?: string): [Doc<T>, Change]
@@ -128,7 +131,7 @@ declare module '@livingspec/automerge' {
     function getBackendState<T>(doc: Doc<T>): BackendState
     function getConflicts<T>(doc: Doc<T>, key: keyof T): any
     function getElementIds(list: any): string[]
-    function getLastLocalChange<T>(doc: Doc<T>): Uint8Array
+    function getLastLocalChange<T>(doc: Doc<T>): BinaryChange
     function getObjectById<T>(doc: Doc<T>, objectId: OpId): Doc<T>
     function getObjectId<T>(doc: Doc<T>): OpId
     function init<T>(options?: InitOptions<T>): Doc<T>
@@ -136,19 +139,27 @@ declare module '@livingspec/automerge' {
   }
 
   namespace Backend {
-    function applyChanges(state: BackendState, changes: Uint8Array[]): [BackendState, Patch]
-    function applyLocalChange(state: BackendState, change: Change): [BackendState, Patch, Uint8Array]
+    function applyChanges(state: BackendState, changes: BinaryChange[]): [BackendState, Patch]
+    function applyLocalChange(state: BackendState, change: Change): [BackendState, Patch, BinaryChange]
     function clone(state: BackendState): BackendState
     function free(state: BackendState): void
-    function getAllChanges(state: BackendState): Uint8Array[]
-    function getChanges(state: BackendState, haveDeps: Hash[]): Uint8Array[]
+    function getAllChanges(state: BackendState): BinaryChange[]
+    function getChangeByHash(state: BackendState, hash: Hash): BinaryChange
+    function getChanges(state: BackendState, haveDeps: Hash[]): BinaryChange[]
     function getHeads(state: BackendState): Hash[]
-    function getMissingDeps(state: BackendState): Hash[]
+    function getMissingDeps(state: BackendState, heads?: Hash[]): Hash[]
     function getPatch(state: BackendState): Patch
     function init(): BackendState
-    function load(data: Uint8Array): BackendState
-    function loadChanges(state: BackendState, changes: Uint8Array[]): BackendState
-    function save(state: BackendState): Uint8Array
+    function load(data: BinaryDocument): BackendState
+    function loadChanges(state: BackendState, changes: BinaryChange[]): BackendState
+    function save(state: BackendState): BinaryDocument
+    function generateSyncMessage(state: BackendState, syncState: SyncState): [SyncState, BinarySyncMessage?]
+    function receiveSyncMessage(state: BackendState, syncState: SyncState, message: BinarySyncMessage): [BackendState, SyncState, Patch?]
+    function encodeSyncMessage(message: SyncMessage): BinarySyncMessage
+    function decodeSyncMessage(bytes: BinarySyncMessage): SyncMessage
+    function initSyncState(): SyncState
+    function encodeSyncState(syncState: SyncState): BinarySyncState
+    function decodeSyncState(bytes: BinarySyncState): SyncState
   }
 
   // Internals
@@ -177,6 +188,27 @@ declare module '@livingspec/automerge' {
     // no public methods or properties
   }
 
+  type BinaryChange = Uint8Array & { __binaryChange: true }
+  type BinaryDocument = Uint8Array & { __binaryDocument: true }
+  type BinarySyncState = Uint8Array & { __binarySyncState: true }
+  type BinarySyncMessage = Uint8Array & { __binarySyncMessage: true }
+
+  interface SyncState {
+    // no public methods or properties
+  }
+
+  interface SyncMessage {
+    heads: Hash[]
+    need: Hash[]
+    have: SyncHave[]
+    changes: BinaryChange[]
+  }
+
+  interface SyncHave {
+    lastSync: Hash[]
+    bloom: Uint8Array
+  }
+
   interface Change {
     message: string
     actor: string
@@ -200,6 +232,7 @@ declare module '@livingspec/automerge' {
   interface Patch {
     actor?: string
     seq?: number
+    pendingChanges: number
     clock: Clock
     deps: Hash[]
     diffs: ObjectDiff

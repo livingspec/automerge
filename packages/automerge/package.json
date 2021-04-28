@@ -13,7 +13,7 @@
     "clean": "yarn g:clean:dist"
   },
   "dependencies": {
-    "automerge": "automerge/automerge.git#81079ff75d2234b47cb912bad728158f2e71c527"
+    "automerge": "automerge/automerge.git#dd34fa72fc3db5e0f1bf9519f25b9d2da9df9d2d"
   },
   "files": [
     "dist",
