@@ -1,7 +1,7 @@
 {
   "name": "@livingspec/automerge",
   "types": "./types/index.d.ts",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "exports": {
     "webpack": "./dist/webpack/index.js",
     "node": "./dist/node/index.js"
