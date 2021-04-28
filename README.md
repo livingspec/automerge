@@ -1,9 +1,12 @@
 # livingspec automerge-slate
 
+![npm (scoped)](https://img.shields.io/npm/v/@livingspec/automerge?label=automerge)
+![npm (scoped)](https://img.shields.io/npm/v/@livingspec/automerge-wasm?label=automerge-wasm)
+
 ## Install
 
-* automerge: `yarn add @livingspec/automerge` [![npm version](https://badge.fury.io/js/%40livingspec%2Fautomerge.svg)](https://badge.fury.io/js/%40livingspec%2Fautomerge)
-* automerge with WASM backend: `yarn add @livingspec/automerge-wasm` [![npm version](https://badge.fury.io/js/%40livingspec%2Fautomerge-wasm.svg)](https://badge.fury.io/js/%40livingspec%2Fautomerge-wasm)
+* automerge: `yarn add @livingspec/automerge`
+* automerge with WASM backend: `yarn add @livingspec/automerge-wasm`
 
 ## Development 
 
