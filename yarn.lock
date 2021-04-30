@@ -2037,6 +2037,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"automerge-backend-wasm@npm:^0.1.4":
+  version: 0.1.4
+  resolution: "automerge-backend-wasm@npm:0.1.4"
+  checksum: db898e0c58b0e2e282bd1d753469e7ae8b098dabd0ae073d9e9e28d965471e7470619bba66b047502a84b81a2043186570c71c10115be5cba44a9b3a91b978c1
+  languageName: node
+  linkType: hard
+
 "automerge@automerge/automerge.git#dd34fa72fc3db5e0f1bf9519f25b9d2da9df9d2d":
   version: 0.14.0
   resolution: "automerge@https://github.com/automerge/automerge.git#commit=dd34fa72fc3db5e0f1bf9519f25b9d2da9df9d2d"
@@ -6270,6 +6277,14 @@ fsevents@~2.3.1:
   checksum: 55348dd25452f0a1690040f943a890dc3e33b8711b1c0592ef1114b2eca51d6ec8db8f8f769f1483b088575c07f44b7e92b3dda5f430ff6fa8c2ebd461db26f9
   languageName: node
   linkType: hard
+
+"test-node-esm@workspace:packages/test-node-esm":
+  version: 0.0.0-use.local
+  resolution: "test-node-esm@workspace:packages/test-node-esm"
+  dependencies:
+    automerge-backend-wasm: ^0.1.4
+  languageName: unknown
+  linkType: soft
 
 "text-table@npm:^0.2.0":
   version: 0.2.0

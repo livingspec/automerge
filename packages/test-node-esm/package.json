@@ -1,0 +1,10 @@
+{
+  "name": "test-node-esm",
+  "type": "module",
+  "scripts": {
+    "test": "node src/index.js"
+  },
+  "devDependencies": {
+    "automerge-backend-wasm": "^0.1.4"
+  }
+}

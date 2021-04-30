@@ -11,7 +11,8 @@
   "scripts": {
     "prepack": "yarn build",
     "dev": "yarn build",
-    "build": "yarn g:build:typescript"
+    "build": "yarn g:build:typescript",
+    "test": "yarn g:test"
   },
   "dependencies": {
     "@livingspec/automerge": "workspace:^0.0.12",

@@ -1,0 +1,1 @@
+import * as backend from 'automerge-backend-wasm';
