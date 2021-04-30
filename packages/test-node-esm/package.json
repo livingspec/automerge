@@ -1,5 +1,5 @@
 {
-  "name": "test-node-esm",
+  "name": "@livingspec/test-node-esm",
   "type": "module",
   "scripts": {
     "test": "node src/index.js"
