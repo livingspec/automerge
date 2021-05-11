@@ -8,7 +8,7 @@
     "g:clean:dist": "cd $INIT_CWD && rm -rf dist",
     "g:test": "cd $INIT_CWD; mocha",
     "test": "yarn workspaces foreach --verbose run test",
-    "test:esm": "yarn workspaces foreach --include test-node-esm --verbose run test",
+    "test:esm": "cd packages/test-node-esm && yarn test",
     "build": "yarn workspaces foreach --verbose run build",
     "dev": "yarn workspaces foreach --verbose run dev",
     "clean": "yarn workspaces foreach --verbose exec rm -rf dist",
