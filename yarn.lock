@@ -1297,11 +1297,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@livingspec/automerge-backend-wasm@workspace:^0.1.25, @livingspec/automerge-backend-wasm@workspace:packages/automerge-backend-wasm":
+"@livingspec/automerge-backend-wasm@workspace:^0.1.24, @livingspec/automerge-backend-wasm@workspace:packages/automerge-backend-wasm":
   version: 0.0.0-use.local
   resolution: "@livingspec/automerge-backend-wasm@workspace:packages/automerge-backend-wasm"
   dependencies:
-    "@livingspec/automerge": "workspace:^0.0.13"
+    "@livingspec/automerge": "workspace:^0.0.12"
     automerge: "automerge/automerge.git#dd34fa72fc3db5e0f1bf9519f25b9d2da9df9d2d"
     copyfiles: ^2.4.1
     typescript: ^4.2.3
@@ -1327,13 +1327,13 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@livingspec/automerge-wasm@workspace:packages/automerge-wasm"
   dependencies:
-    "@livingspec/automerge": "workspace:^0.0.13"
-    "@livingspec/automerge-backend-wasm": "workspace:^0.1.25"
+    "@livingspec/automerge": "workspace:^0.0.12"
+    "@livingspec/automerge-backend-wasm": "workspace:^0.1.24"
     typescript: ^4.2.2
   languageName: unknown
   linkType: soft
 
-"@livingspec/automerge@workspace:^0.0.13, @livingspec/automerge@workspace:packages/automerge":
+"@livingspec/automerge@workspace:^0.0.12, @livingspec/automerge@workspace:packages/automerge":
   version: 0.0.0-use.local
   resolution: "@livingspec/automerge@workspace:packages/automerge"
   dependencies:
@@ -1341,7 +1341,7 @@ __metadata:
     "@babel/preset-env": ^7.13.12
     "@types/babel__core": ^7
     "@types/babel__preset-env": ^7
-    automerge: "automerge/automerge.git#984dd6c0c1b9a318cc92ef1e31f698168ccc35f6"
+    automerge: "automerge/automerge.git#dd34fa72fc3db5e0f1bf9519f25b9d2da9df9d2d"
     babel-loader: ^8.2.2
     webpack: ^5.28.0
     webpack-cli: ^4.6.0
@@ -2068,18 +2068,6 @@ __metadata:
   version: 0.1.4
   resolution: "automerge-backend-wasm@npm:0.1.4"
   checksum: db898e0c58b0e2e282bd1d753469e7ae8b098dabd0ae073d9e9e28d965471e7470619bba66b047502a84b81a2043186570c71c10115be5cba44a9b3a91b978c1
-  languageName: node
-  linkType: hard
-
-"automerge@automerge/automerge.git#984dd6c0c1b9a318cc92ef1e31f698168ccc35f6":
-  version: 1.0.1-preview.0
-  resolution: "automerge@https://github.com/automerge/automerge.git#commit=984dd6c0c1b9a318cc92ef1e31f698168ccc35f6"
-  dependencies:
-    fast-sha256: ^1.3.0
-    immutable: ^3.8.2
-    pako: ^2.0.3
-    uuid: ^3.4.0
-  checksum: f40f67f88e3ba81e12e30d9748644b615d942feed5db92578de5c458bfd179c2d22df96b8c91002bf8417d1c80cbe287d0c68df8306c523f2db57d6eb3e3fd22
   languageName: node
   linkType: hard
 
