@@ -8,7 +8,7 @@ import {
   generateSyncMessage,
   receiveSyncMessage,
   SyncState,
-} from "@livingspec/automerge-wasm";
+} from "@livingspec/automerge";
 
 import { applySlateOps, RootWithCursors, toSync } from "../automerge-slate";
 
