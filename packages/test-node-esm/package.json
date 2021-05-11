@@ -1,5 +1,6 @@
 {
   "name": "@livingspec/test-node-esm",
+  "private": true,
   "type": "module",
   "scripts": {
     "test": "node src/index.js"

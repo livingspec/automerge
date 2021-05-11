@@ -1,6 +1,6 @@
 {
   "name": "@livingspec/automerge-backend-wasm",
-  "version": "0.1.24",
+  "version": "0.1.26",
   "author": "Nemanja Tosic <nemanja@livingspec.com>",
   "license": "MIT",
   "main": "./dist/webpack/index.js",
@@ -15,8 +15,8 @@
     "build": "yarn g:build:typescript && yarn copy"
   },
   "devDependencies": {
-    "@livingspec/automerge": "workspace:^0.0.12",
-    "automerge": "automerge/automerge.git#dd34fa72fc3db5e0f1bf9519f25b9d2da9df9d2d",
+    "@livingspec/automerge": "workspace:^0.0.14",
+    "automerge": "livingspec/automerge-upstream.git#5ebfc4c61f70ab4b3e345b70b3660b5000d5ddcd",
     "copyfiles": "^2.4.1",
     "typescript": "^4.2.3"
   },
